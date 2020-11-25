@@ -57,3 +57,13 @@ just like other tokens to act on behalf of the app using e.g. [gh()].
 To register a new app go to:
 [https://github.com/settings/apps/new](https://github.com/settings/apps/new)
 }
+\examples{
+\donttest{
+Sys.setenv('GH_APP_ID' = 87942)
+Sys.setenv('GH_APP_KEY' = "~/Downloads/r-universe.2020-11-25.private-key.pem")
+gh_app_installation_count()
+gh_app_installation_list()
+gh_app_installation_info('jeroen')
+gh_app_token('jeroen')
+}
+}

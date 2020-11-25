@@ -18,6 +18,14 @@
 #' @param app_id a string with the github app id
 #' @param app_key file or string with your private key, passed to [openssl::read_key]
 #' @return a temporary token that will be valid for 1 hour
+#' @examples \donttest{
+#' Sys.setenv('GH_APP_ID' = 87942)
+#' Sys.setenv('GH_APP_KEY' = "~/Downloads/r-universe.2020-11-25.private-key.pem")
+#' gh_app_installation_count()
+#' gh_app_installation_list()
+#' gh_app_installation_info('jeroen')
+#' gh_app_token('jeroen')
+#' }
 gh_app_token <- function(installation, app_id = Sys.getenv('GH_APP_ID'),
                          app_key = Sys.getenv('GH_APP_KEY')){
   if(!nchar(app_id) || !nchar(app_key))

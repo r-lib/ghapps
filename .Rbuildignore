@@ -3,4 +3,5 @@
 ^action.yml$
 ^Dockerfile$
 ^entrypoint.sh$
-
+^LICENSE.md$
+^\.github$
