@@ -6,6 +6,7 @@
 \alias{gh_app_installation_count}
 \alias{gh_app_installation_list}
 \alias{gh_app_installation_info}
+\alias{gh_app_installation_delete}
 \alias{gh_app_info}
 \title{Authenticate as an App}
 \usage{
@@ -26,6 +27,12 @@ gh_app_installation_list(
 )
 
 gh_app_installation_info(
+  installation,
+  app_id = Sys.getenv("GH_APP_ID"),
+  app_key = Sys.getenv("GH_APP_KEY")
+)
+
+gh_app_installation_delete(
   installation,
   app_id = Sys.getenv("GH_APP_ID"),
   app_key = Sys.getenv("GH_APP_KEY")

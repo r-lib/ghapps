@@ -77,6 +77,17 @@ gh_app_installation_info <- function(installation, app_id = Sys.getenv('GH_APP_I
 
 #' @export
 #' @rdname gh_apps
+gh_app_installation_delete <- function(installation, app_id = Sys.getenv('GH_APP_ID'),
+                                     app_key = Sys.getenv('GH_APP_KEY')){
+  installation_info <- gh_app_installation_info(installation = installation,
+                                              app_id = app_id, app_key = app_key)
+  endpoint <- paste0('/app/installations/', installation_info$id)
+  jwt <- gh_app_jwt(app_id = app_id, app_key = app_key)
+  gh_as_app(endpoint, jwt = jwt, .method = 'DELETE')
+}
+
+#' @export
+#' @rdname gh_apps
 #' @param name slug of the github app from `https://github.com/apps/{name}`
 gh_app_info <- function(name = 'r-universe'){
   gh::gh(paste0('/apps/', name))
