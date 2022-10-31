@@ -61,7 +61,10 @@ authenticate and interact with the GitHub API in R on behalf of an app.
 GitHub has two modes of authentication: on behalf of a user, or on behalf of a
 "GitHub app". An app is a first class actor within GitHub. This means it has
 its own permissions to specific repositories, without being tied to any user
-account. In fact, you can think of an app as a special type of dummy user.
+account. In fact, you can think of an app as a special type of dummy user with
+a specific purpose. Even though the word 'app' may sound intimidating, any
+program that requires authentication with GitHub, such as an R script, can be
+considered an app.
 \subsection{Creating a GitHub app}{
 
 To register a new app go to:
