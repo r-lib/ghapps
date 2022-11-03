@@ -11,7 +11,7 @@ Description: GitHub apps provide a powerful way to manage fine grained
     This package extends 'gh' to let you authenticate and interact with the
     GitHub API in R on behalf of an app.
 License: MIT + file LICENSE
-URL: https://github.com/jeroen/ghapps
+URL: https://github.com/r-lib/ghapps
 Encoding: UTF-8
 RoxygenNote: 7.2.1
 Imports: 
