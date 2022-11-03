@@ -1,23 +1,23 @@
 #' Authenticate as a GitHub App
 #'
-#' GitHub apps provide a powerful way to manage fine grained programmatic access
+#' GitHub *apps* provide a powerful way to manage fine grained programmatic access
 #' to specific git repositories, without having to create dummy users, and which
 #' are safer than PATs for automated tasks. This package extends [gh] to let you
 #' authenticate and interact with the GitHub API in R on behalf of an app.
 #'
-#' GitHub has two modes of authentication: on behalf of a user, or on behalf of a
-#' "GitHub app". An app is a first class actor within GitHub. This means it has
-#' its own permissions to specific repositories, without being tied to any user
-#' account. In fact, you can think of an app as a special type of dummy user with
-#' a specific purpose. Even though the word 'app' may sound intimidating, any
-#' program that requires authentication with GitHub, such as an R script, can be
-#' considered an app.
+#' Instead of authenticating as a user, you can also authenticate with the GitHub
+#' API as a "GitHub app". An app is a first class actor within GitHub. This means
+#' it has its own permissions to specific repositories, without being tied to any
+#' particular user account. In fact, you could think of an app as a special type
+#' of dummy user with a specific purpose. Don't be too intimidated by the word
+#' 'app', it is mainly an authentication concept. Any program that authenticates
+#' with GitHub, such as an R script, can be considered an app.
 #'
 #' ## Creating a GitHub app
 #'
 #' To register a new app go to:
 #' [https://github.com/settings/apps/new](https://github.com/settings/apps/new).
-#' You can register as many apps as you like, with different permissions, for
+#' You may register as many apps as you like, with different permissions, for
 #' different purposes.
 #'
 #' You can choose if the the app is public (to allow others to give the app access
@@ -27,27 +27,30 @@
 #'
 #' ## Acting on behalf of an app in R
 #'
-#' We can interact with most of the GitHub API on behalf of an app in exactly the
-#' same way as a regular user. The only difference is that instead of a personal
-#' access token (PAT) we need to generate a temporary app token, which
-#' looks very similar. From here we  can use [gh()] in the same way as usual.
+#' We can interact with [most of the GitHub API](https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps)
+#' on behalf of an app in exactly the same way as a regular user. The only
+#' difference is that instead of a personal access token (PAT) we generate a
+#' temporary app token, which looks very similar. From here we use [gh()] in
+#' exactly the same way as usual.
 #'
 #' Authentication on behalf of an app is a two step process. First you need to
 #' generate a so-called JWT with [gh_app_jwt()] using the App-ID and a RSA key file
 #' that you can retrieve on GitHub in the app settings. This JWT is only valid for
-#' 5 minutes, and is used to generate app tokens with [gh_app_token()].
-#' This app token works the same as a PAT, but it is valid for 1 hour and has
-#' permission only to the repositories that you specified as the `installations`
-#' parameter in [gh_app_token()]. From here you can use [gh()] to perform all the
-#' operations on the git repositories that the app has permissions for.
+#' 5 minutes, and is used to generate app tokens for specific target repositories
+#' with [gh_app_token()]. This app token works the same as a PAT, but it is valid
+#' for 1 hour and has permission only to the repository that you specified as the
+#' `installations` parameter in [gh_app_token()]. From here you can use [gh()] to
+#' perform all the operations that the git repository has given your app permission
+#' for.
 #'
 #' ## Using this in CI
 #'
-#' You can also specify the app-id and private key via environment variables
-#' `GH_APP_ID` and `GH_APP_KEY`. The latter can simply contain the verbatim content
-#' of the private key file that you expose as a 'secret' in the CI. This way you
-#' can authenticate on behalf of a github-app inside a github action, to safely
-#' automate sensitive operations.
+#' A common use case is to authenticate as a github-app inside a github action script,
+#' in order to run tasks that require authentication, without the need to use someones
+#' personal credentials. To make this easy, you can specify the app-id and private key
+#' via environment variables `GH_APP_ID` and `GH_APP_KEY` which you can expose as a
+#' 'secret' in the CI. The `GH_APP_KEY` can either be a file path, or simply the
+#' verbatim content of the private key (pem) file.
 #'
 #' @export
 #' @name ghapps
@@ -63,7 +66,8 @@ gh_app_info <- function(jwt = gh_app_jwt()){
 #' @param installation the target repositorie(s) which we want to access.
 #' Either a user / organization name such as `"ropensci"`, or a specific repository
 #' that has the app installed for example `"ropensci/magick"`.
-#' @return a temporary token that will be valid for 1 hour
+#' @return `gh_app_token` returns a temporary token that will be valid for 1 hour
+#' that you use instead of a PAT.
 #' @examples
 #' # Authenitcate and show some metadata about our demo-app
 #' gh_app_info(jwt = gh_demo_jwt())

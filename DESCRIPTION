@@ -7,8 +7,8 @@ Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0002-4035-0289"))
 Description: GitHub apps provide a powerful way to manage fine grained
     programmatic access to specific git repositories, without having to
-    create dummy users, and which are safer than PATs for automated tasks. 
-    This package extends gh to let you authenticate and interact with the
+    create dummy users, and which are safer than a PAT for automated tasks. 
+    This package extends 'gh' to let you authenticate and interact with the
     GitHub API in R on behalf of an app.
 License: MIT + file LICENSE
 URL: https://github.com/jeroen/ghapps
