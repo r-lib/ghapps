@@ -116,6 +116,13 @@ gh_app_installation_info <- function(installation, jwt = gh_app_jwt()){
 
 #' @export
 #' @rdname ghapps
+gh_app_installation_repositories <- function(installation, jwt = gh_app_jwt()){
+  token <- gh_app_token(installation = installation, jwt = jwt)
+  gh::gh('/installation/repositories', .token = token, per_page = 100)
+}
+
+#' @export
+#' @rdname ghapps
 gh_app_installation_delete <- function(installation, jwt = gh_app_jwt()){
   installation_info <- gh_app_installation_info(installation = installation, jwt = jwt)
   endpoint <- paste0('/app/installations/', installation_info$id)

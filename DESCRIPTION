@@ -14,7 +14,7 @@ Description: 'GitHub' apps provide a powerful way to manage fine grained
 License: MIT + file LICENSE
 URL: https://github.com/r-lib/ghapps
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: 
   gh, 
   jose,

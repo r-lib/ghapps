@@ -7,6 +7,7 @@
 \alias{gh_app_installation_count}
 \alias{gh_app_installation_list}
 \alias{gh_app_installation_info}
+\alias{gh_app_installation_repositories}
 \alias{gh_app_installation_delete}
 \alias{gh_app_public_info}
 \alias{gh_app_jwt}
@@ -22,6 +23,8 @@ gh_app_installation_count(jwt = gh_app_jwt())
 gh_app_installation_list(jwt = gh_app_jwt())
 
 gh_app_installation_info(installation, jwt = gh_app_jwt())
+
+gh_app_installation_repositories(installation, jwt = gh_app_jwt())
 
 gh_app_installation_delete(installation, jwt = gh_app_jwt())
 
