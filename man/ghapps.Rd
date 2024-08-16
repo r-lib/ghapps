@@ -58,7 +58,7 @@ that you use instead of a PAT.
 \description{
 GitHub \emph{apps} provide a powerful way to manage fine grained programmatic access
 to specific git repositories, without having to create dummy users, and which
-are safer than PATs for automated tasks. This package extends \link{gh} to let you
+are safer than PATs for automated tasks. This package extends \link[gh:gh]{gh::gh} to let you
 authenticate and interact with the GitHub API in R on behalf of an app.
 }
 \details{
@@ -87,7 +87,7 @@ single repository, without exposing your user account in any way.
 We can interact with \href{https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps}{most of the GitHub API}
 on behalf of an app in exactly the same way as a regular user. The only
 difference is that instead of a personal access token (PAT) we generate a
-temporary app token, which looks very similar. From here we use \code{\link[=gh]{gh()}} in
+temporary app token, which looks very similar. From here we use \code{\link[gh:gh]{gh::gh()}} in
 exactly the same way as usual.
 
 Authentication on behalf of an app is a two step process. First you need to
@@ -96,7 +96,7 @@ that you can retrieve on GitHub in the app settings. This JWT is only valid for
 5 minutes, and is used to generate app tokens for specific target repositories
 with \code{\link[=gh_app_token]{gh_app_token()}}. This app token works the same as a PAT, but it is valid
 for 1 hour and has permission only to the repository that you specified as the
-\code{installations} parameter in \code{\link[=gh_app_token]{gh_app_token()}}. From here you can use \code{\link[=gh]{gh()}} to
+\code{installations} parameter in \code{\link[=gh_app_token]{gh_app_token()}}. From here you can use \code{\link[gh:gh]{gh::gh()}} to
 perform all the operations that the git repository has given your app permission
 for.
 }

@@ -1,0 +1,6 @@
+1.1.0:
+  - Fix anchored links for CRAN
+  - New function gh_app_installation_repositories()
+
+1.0.0:
+  - Initial release
