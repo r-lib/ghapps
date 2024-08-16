@@ -12,7 +12,8 @@ Description: 'GitHub' apps provide a powerful way to manage fine grained
     authenticate and interact with 'GitHub' <https://docs.github.com/en/rest/overview>
     in 'R' as an app.
 License: MIT + file LICENSE
-URL: https://github.com/r-lib/ghapps
+URL: https://r-lib.r-universe.dev/ghapps
+BugReports: https://github.com/r-lib/ghapps/issues
 Encoding: UTF-8
 RoxygenNote: 7.3.2.9000
 Imports: 
