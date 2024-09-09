@@ -3,7 +3,7 @@ Type: Package
 Title: Authenticate as a 'GitHub' App
 Version: 1.1.0
 Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"), 
-    email = "jeroen@berkeley.edu",
+    email = "jeroenooms@gmail.com",
     comment = c(ORCID = "0000-0002-4035-0289"))
 Description: 'GitHub' apps provide a powerful way to manage fine grained
     programmatic access to specific 'git' repositories, without having to
